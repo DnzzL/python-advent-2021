@@ -1,13 +1,9 @@
-from solution import part_one, part_two
 import numpy as np
 
-data = []
-with open("./test_one.txt", "r") as f:
-    for line in f:
-        coords = line.strip().split(" -> ")
-        data.append(coords[0].split(","))
-        data.append(coords[1].split(","))
-data = np.array(data).astype(int)
+from solution import part_one, part_two
+from utils import read_data
+
+data = read_data("test.txt")
 
 
 def test_part_one():

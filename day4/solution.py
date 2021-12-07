@@ -1,5 +1,8 @@
 import numpy as np
 
+from utils import read_data
+from copy import deepcopy
+
 
 def has_horizontal_alignment(arr: np.array, played: list):
     for i in range(5):
@@ -78,14 +81,7 @@ def part_two(draws: list, grids: dict) -> int:
 
 
 if __name__ == "__main__":
-    with open("./input_one.txt", "r") as f:
-        draws = next(f).strip().split(",")
-        data = [
-            line.strip().replace("  ", " ").split(" ") for line in f if len(line) > 1
-        ]
-    grids = {}
-    for i in range(0, len(data), 5):
-        grids[i] = np.array(data[i : i + 5]).reshape(5, 5).astype(int)
+    draws, grids = read_data("./input.txt")
 
-    # print(part_one(draws, grids))
-    print(part_two(draws, grids))
+    print(part_one(draws, deepcopy(grids)))
+    print(part_two(draws, deepcopy(grids)))

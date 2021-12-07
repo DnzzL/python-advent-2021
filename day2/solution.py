@@ -1,3 +1,6 @@
+from utils import read_data
+
+
 def part_one(data: list) -> int:
     """Calculate the horizontal position and depth you would have after following the planned course.
     What do you get if you multiply your final horizontal position by your final depth?
@@ -51,10 +54,7 @@ def part_two(data: list) -> int:
 
 
 if __name__ == "__main__":
-    with open("./input_one.txt", "r") as f:
-        data = [line.strip().split(" ") for line in f]
-    result = part_one(data)
-    print(result)
+    data = read_data("./input.txt")
 
-    result = part_two(data)
-    print(result)
+    print(part_one(data))
+    print(part_two(data))

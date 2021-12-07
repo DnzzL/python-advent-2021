@@ -1,17 +1,15 @@
 from solution import part_one, part_two
 import numpy as np
+from copy import deepcopy
 
-with open("./test_one.txt", "r") as f:
-    draws = next(f).strip().split(",")
-    data = [line.strip().replace("  ", " ").split(" ") for line in f if len(line) > 1]
-grids = {}
-for i in range(0, len(data), 5):
-    grids[i] = np.array(data[i : i + 5]).reshape(5, 5).astype(int)
+from utils import read_data
+
+data = read_data("test.txt")
 
 
-# def test_part_one():
-#     assert part_one(draws, grids) == 4512
+def test_part_one():
+    assert part_one(draws, deepcopy(grids)) == 4512
 
 
 def test_part_two():
-    assert part_two(draws, grids) == 1924
+    assert part_two(draws, deepcopy(grids)) == 1924

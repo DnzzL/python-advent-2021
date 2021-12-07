@@ -1,5 +1,7 @@
 import numpy as np
 
+from utils import read_data
+
 
 def is_horizontal_line(start: tuple, end: tuple):
     (_, y1) = start
@@ -87,13 +89,7 @@ def part_two(data: dict) -> int:
 
 
 if __name__ == "__main__":
-    data = []
-    with open("./input_one.txt", "r") as f:
-        for line in f:
-            coords = line.strip().split(" -> ")
-            data.append(coords[0].split(","))
-            data.append(coords[1].split(","))
-    data = np.array(data).astype(int)
+    data = read_data("./input.txt")
 
     print(part_one(data))
     print(part_two(data))

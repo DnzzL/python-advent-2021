@@ -1,3 +1,6 @@
+from utils import read_data
+
+
 def part_one(data: list) -> int:
     """count the number of times a depth measurement increases from the previous measurement
 
@@ -36,10 +39,7 @@ def part_two(data: list) -> int:
 
 
 if __name__ == "__main__":
-    with open("day1/input_one.txt", "r") as f:
-        data = [int(line.strip()) for line in f]
-    result = part_one(data)
-    print(result)
+    data = read_data("input.txt")
 
-    result = part_two(data)
-    print(result)
+    print(part_one(data))
+    print(part_two(data))

@@ -1,3 +1,5 @@
+from utils import read_data
+
 # Naive solution not Scalable with exponential growth
 # def part_one(data: dict, ran=80) -> int:
 #     for i in range(ran):
@@ -9,6 +11,18 @@
 
 
 def part_one(data: dict, ran=80) -> int:
+    """Each lanternfish creates a new lanternfish once every 7 days.
+    Each day, a 0 becomes a 6 and adds a new 8 to the end of the list,
+    while each other number decreases by 1 if it was present at the start of the day.
+    How many lanternfish would there be after 80 days?
+
+    Args:
+        data (dict): [input]
+        ran (int, optional): [number of days]. Defaults to 80.
+
+    Returns:
+        int: [result]
+    """
     lifespans = {i: 0 for i in range(8)}
     for d in data:
         lifespans[d] += 1
@@ -25,12 +39,19 @@ def part_one(data: dict, ran=80) -> int:
 
 
 def part_two(data: dict) -> int:
+    """How many lanternfish would there be after 256 days?
+
+    Args:
+        data (dict): [data]
+
+    Returns:
+        int: [result]
+    """
     return part_one(data, 256)
 
 
 if __name__ == "__main__":
-    data = []
-    with open("./input_one.txt", "r") as f:
-        data = [int(i) for i in next(f).split(",")]
+    data = read_data("./input.txt")
+
     print(part_one(data))
     print(part_two(data))

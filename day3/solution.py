@@ -1,5 +1,7 @@
 from collections import Counter
 
+from utils import read_data
+
 
 def part_one(data: list) -> int:
     """Each bit in the gamma rate can be determined by finding the most common bit in the corresponding position
@@ -67,7 +69,7 @@ def part_two(data: list) -> int:
 
 
 if __name__ == "__main__":
-    with open("./input_one.txt", "r") as f:
-        data = [line.strip() for line in f]
+    data = read_data("./input.txt")
+
     print(part_one(data))
     print(part_two(data))
