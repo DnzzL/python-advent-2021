@@ -1,4 +1,5 @@
 import numpy as np
+from math import floor
 
 from utils import read_data
 
@@ -33,15 +34,14 @@ def part_two(data: list) -> int:
     Returns:
         int: [result]
     """
-    weights = [0] * len(data)
-    for i in range(len(data)):
-        for d in data:
-            weights[i] += arithmetic_sum(abs(d - i))
-    return np.min(weights)
+    mean = floor(np.mean(data))  # ceil works for test and ceil for puzzle input 🤔
+    diffs = np.abs(data - mean)
+    cost = list(map(lambda x: arithmetic_sum(x), diffs))
+    return int(np.sum(cost))
 
 
 if __name__ == "__main__":
-    data = read_data("./input.txt")
+    data = read_data("./test.txt")
 
     print(part_one(data))
     print(part_two(data))
