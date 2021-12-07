@@ -10,14 +10,14 @@ from utils import read_data
 #     return len(data)
 
 
-def part_one(data: dict, ran=80) -> int:
+def part_one(data: list, ran=80) -> int:
     """Each lanternfish creates a new lanternfish once every 7 days.
     Each day, a 0 becomes a 6 and adds a new 8 to the end of the list,
     while each other number decreases by 1 if it was present at the start of the day.
     How many lanternfish would there be after 80 days?
 
     Args:
-        data (dict): [input]
+        data (list): [input]
         ran (int, optional): [number of days]. Defaults to 80.
 
     Returns:
@@ -38,11 +38,11 @@ def part_one(data: dict, ran=80) -> int:
     return sum(lifespans.values())
 
 
-def part_two(data: dict) -> int:
+def part_two(data: list) -> int:
     """How many lanternfish would there be after 256 days?
 
     Args:
-        data (dict): [data]
+        data (list): [data]
 
     Returns:
         int: [result]
